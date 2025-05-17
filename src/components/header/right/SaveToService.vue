@@ -44,7 +44,7 @@ function save(){
         const blob = await f.blob();
         const res = await fetchUpload({
           file: new File([blob],`${sceneInfoStore.data.sceneName}-${Date.now()}.png`, { type: blob.type }),
-          biz: `astral/3DEditor/screenshot/${biz}`,
+          biz: `upload/3DEditor/screenshot/${biz}`,
         })
         if(res.error === null){
           sceneInfoStore.setDataFieldValue("coverPicture",res.data);
@@ -84,7 +84,7 @@ function save(){
         zipUploadFun:async (zipFile: File) => {
           const res = await fetchUpload({
             file: zipFile,
-            biz: `astral/3DEditor/scene/${biz}`,
+            biz: `upload/3DEditor/scene/${biz}`,
           })
           if (res.error !== null) {
             window.$message?.error(window.$t("scene['Failed to save project!']"));

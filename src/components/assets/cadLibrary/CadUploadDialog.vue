@@ -129,7 +129,7 @@ function submit(e) {
       if (CADModel.thumbnail) {
         const res = await fetchUpload({
           file: CADModel.thumbnail,
-          biz: "cad/thumbnail"
+          biz: "upload/cad/thumbnail"
         })
 
         if (res.data === null) {

@@ -204,7 +204,7 @@ function submit(e) {
       if (BIMModel.thumbnail) {
         const res = await fetchUpload({
           file: BIMModel.thumbnail,
-          biz: "bim/thumbnail"
+          biz: "upload/bim/thumbnail"
         })
 
         if (res.data === null) {

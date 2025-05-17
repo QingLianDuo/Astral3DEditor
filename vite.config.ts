@@ -74,21 +74,11 @@ export default defineConfig(async ({mode, command}) => {
                     changeOrigin: true,
                     rewrite: (path) => path.replace(new RegExp(`^/api`), '/api')
                 },
-                "^/upyun": {
-                    target: env.VITE_UPYUN_URL,
+                "^/file/static": {
+                    target: env.VITE_PROXY_URL,
                     changeOrigin: true,
-                    rewrite: (path) => path.replace(new RegExp(`^/upyun`), '')
+                    rewrite: (path) => path.replace(new RegExp(`^/file/static`), '/api/common/static')
                 },
-                '^/static/upload': {
-                    target: env.VITE_UPYUN_URL,
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(new RegExp(`^/static/upload`), '/static/upload')
-                },
-                '^/static/bim2gltf': {
-                    target: env.VITE_UPYUN_URL,
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(new RegExp(`^/static/bim2gltf`), '/static/bim2gltf')
-                }
             }
         }
     }

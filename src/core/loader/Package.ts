@@ -567,7 +567,7 @@ export class Package {
         unpackConfig.onProgress && unpackConfig.onProgress(0);
         let totalZipNumber = 0, progress = 0;
 
-        this.prefix_url = unpackConfig.url.substring(0, unpackConfig.url.lastIndexOf("/"));
+        this.prefix_url = "/file/static/" + unpackConfig.url.substring(0, unpackConfig.url.lastIndexOf("/"));
 
         // indexDb存储
         // const db = window.VIEWPORT.modules["db"];
@@ -669,7 +669,7 @@ export class Package {
 
         const networkGet = () => {
             // 下载场景包
-            fetch(unpackConfig.url)
+            fetch(`/file/static/${unpackConfig.url}`)
                 .then(zipRes => zipRes.blob())
                 .then(async (file) => {
                     unpackConfig.onProgress && unpackConfig.onProgress(1);

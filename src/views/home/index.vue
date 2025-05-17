@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import {h, ref} from 'vue';
-import type {Component} from 'vue';
 import type {MenuOption} from 'naive-ui'
 import {Cube, Sprout, Settings,Notebook,LogoGithub} from '@vicons/carbon';
-import {cpt,t} from "@/language";
+import {t} from "@/language";
 import {renderIcon} from "@/utils/common/render";
 import SidebarTopInfo from "@/views/home/components/SidebarTopInfo.vue";
 import SidebarBottomInfo from "./components/SidebarBottomInfo.vue";

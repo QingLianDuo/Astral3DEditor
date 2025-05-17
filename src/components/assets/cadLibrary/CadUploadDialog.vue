@@ -149,9 +149,16 @@ function submit(e) {
         fileName: CADModel.fileName,
         conversionStatus: 0,
       }).then((res) => {
-        if (res.data === null) {
+        if (res.data === null || res.data.conversionStatus === 2) {
           fail();
           return;
+        }
+
+        if(res.data.conversionStatus === 1 && notice){
+          notice.content = t("cad['CAD parse completed']");
+          setTimeout(() => {
+            notice?.destroy();
+          }, 1000)
         }
 
         emits("refreshList");

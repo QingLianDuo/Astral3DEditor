@@ -15,5 +15,5 @@ export function fetchGetCadList(params) {
  * 添加数据并启动cad解析（ 需传入接收结果的websocket uname）
  */
 export function fetchAddDwg2dxf(data) {
-    return request.post('/editor3d/cad/dwg2dxf',data,{params:{uname:websocketStore.uname},headers:{"Content-Type":"multipart/form-data"}});
+    return request.post<ICad.IData>('/editor3d/cad/dwg2dxf',data,{params:{uname:websocketStore.uname},headers:{"Content-Type":"multipart/form-data"}});
 }

@@ -78,7 +78,7 @@ export function main(d) {
     // renderer.autoClear = false;
 
     const loader = new TTFLoader();
-    loader.loadAsync("/upyun/assets/font/Alimama_DongFangDaKai_Regular.ttf").then(function (response) {
+    loader.loadAsync("/static/resource/font/Alimama_DongFangDaKai_Regular.ttf").then(function (response) {
         font = new Font(response);
 
         init();

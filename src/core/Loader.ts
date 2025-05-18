@@ -231,7 +231,7 @@ class Loader {
 
 					const { DRACOLoader } = await import( 'three/examples/jsm/loaders/DRACOLoader.js' );
 					const loader = new DRACOLoader();
-					loader.setDecoderPath( '/upyun/libs/draco/' );
+					loader.setDecoderPath( '/static/libs/draco/' );
 					//@ts-ignore
 					loader.decodeDracoFile( contents, function ( geometry ) {
 						let object;
@@ -351,7 +351,7 @@ class Loader {
 						this.ifcLoader = new IFCLoader();
 					}
 
-					await this.ifcLoader.ifcManager.useWebWorkers(true, "/upyun/libs/web-ifc/IFCWorker.js");
+					await this.ifcLoader.ifcManager.useWebWorkers(true, "/static/libs/web-ifc/IFCWorker.js");
 					await this.ifcLoader.ifcManager.setWasmPath('/');
 
 					// const { IFCSPACE } = await import('web-ifc');
@@ -586,6 +586,7 @@ class Loader {
 						const chunk:any = chunks[ i ];
 
 						const mesh = new VOXMesh(chunk);
+						// @ts-ignore
 						group.add( mesh );
 					}
 
@@ -789,10 +790,10 @@ class Loader {
 		const { MeshoptDecoder } = await import( 'three/examples/jsm/libs/meshopt_decoder.module.js' );
 
 		const dracoLoader = new DRACOLoader();
-		dracoLoader.setDecoderPath('/upyun/libs/draco/gltf/');
+		dracoLoader.setDecoderPath('/static/libs/draco/gltf/');
 
 		const ktx2Loader = new KTX2Loader();
-		ktx2Loader.setTranscoderPath('/upyun/libs/basis/');
+		ktx2Loader.setTranscoderPath('/static/libs/basis/');
 		useDispatchSignal("rendererDetectKTX2Support",ktx2Loader);
 
 		const loader = new GLTFLoader(manager);

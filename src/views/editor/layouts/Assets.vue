@@ -5,15 +5,12 @@
     </div>
 
 
-    <n-tabs default-value="bim" animated type="line" justify-content="space-around" class="!h-60%" pane-class="layout-assets-tab-pane">
+    <n-tabs default-value="library" animated type="line" justify-content="space-around" class="!h-60%" pane-class="layout-assets-tab-pane">
       <n-tab-pane name="library" :tab="t('layout.assets[\'Resource library\']')" display-directive="show">
         <AssetsLibrary />
       </n-tab-pane>
       <n-tab-pane name="cad" tab="CAD" display-directive="show">
         <CadLibrary />
-      </n-tab-pane>
-      <n-tab-pane name="bim" tab="BIM" display-directive="show">
-        <BIMLibrary />
       </n-tab-pane>
     </n-tabs>
   </div>
@@ -22,7 +19,6 @@
 <script lang="ts" setup>
 import {t} from "@/language";
 import AssetsLibrary from "@/components/assets/AssetsLibrary.vue";
-import BIMLibrary from "@/components/assets/BIMLibrary.vue";
 import SceneTree from "@/components/tree/SceneTree.vue";
 import CadLibrary from "@/components/assets/CadLibrary.vue";
 </script>

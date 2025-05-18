@@ -186,7 +186,7 @@ export function createTextForScene(text, style, entity, color) {
 
     // 此处不能使用this.font - (json)，因为此处需要自身加载字体文件
     // textEnt.font = this.font;
-    textEnt.font = "/upyun/assets/font/Alimama_DongFangDaKai_Regular.ttf";
+    textEnt.font = "/static/resource/font/Alimama_DongFangDaKai_Regular.ttf";
     textEnt.fontSize = style.textHeight;
     textEnt.maxWidth = entity.width;
     textEnt.position.x = entity.position.x;

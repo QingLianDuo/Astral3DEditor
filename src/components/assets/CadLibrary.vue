@@ -159,7 +159,7 @@ async function addToScene(item: ICad.IData) {
         // 先清空图纸
         drawingStore.$reset();
 
-        drawingStore.setImgSrc(item.converterFilePath);
+        drawingStore.setImgSrc(`file/static/${item.converterFilePath}`);
         drawingStore.setIsUploaded(true);
       },
     });
@@ -167,7 +167,7 @@ async function addToScene(item: ICad.IData) {
     // 先清空图纸
     drawingStore.$reset();
 
-    drawingStore.setImgSrc(item.converterFilePath);
+    drawingStore.setImgSrc(`file/static/${item.converterFilePath}`);
     drawingStore.setIsUploaded(true);
   }
 }

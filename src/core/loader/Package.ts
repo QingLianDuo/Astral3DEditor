@@ -567,7 +567,8 @@ export class Package {
         unpackConfig.onProgress && unpackConfig.onProgress(0);
         let totalZipNumber = 0, progress = 0;
 
-        this.prefix_url = "/file/static/" + unpackConfig.url.substring(0, unpackConfig.url.lastIndexOf("/"));
+        const match = unpackConfig.url.match( /(.*[\\/])?([a-zA-Z0-9]+-V\d+)(?=[\\/]|$)/);
+        this.prefix_url = "/file/static/" + (match ? match[0] : unpackConfig.url.substring(0, unpackConfig.url.lastIndexOf("/")));
 
         // indexDb存储
         // const db = window.VIEWPORT.modules["db"];

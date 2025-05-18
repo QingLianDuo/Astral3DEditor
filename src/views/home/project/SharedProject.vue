@@ -4,6 +4,7 @@ import {t} from "@/language";
 import {fetchGetAllScenes} from "@/http/api/scenes";
 import CardAction from "@/views/home/project/components/CardAction.vue";
 import CreateProject from "@/views/home/project/components/CreateProject.vue";
+import {getServiceStaticFile} from "@/utils/common/file";
 
 const data = ref<ISceneFetchData[]>([]);
 let paginationReactive = reactive({
@@ -83,7 +84,7 @@ onMounted(() => {
 
         <n-card hoverable v-for="project in data" :key="project.id">
             <template #cover>
-                <n-skeleton v-if="loadingProjectId === project.id" height="100%" width="100%" />
+                <n-skeleton v-if="loadingProjectId === Number(project.id)" height="100%" width="100%" />
                 <template v-else>
                     <div class="absolute top-10px right-10px z-10">
                         <n-tag type="success" :bordered="false">
@@ -95,15 +96,15 @@ onMounted(() => {
                     </div>
 
                     <n-image preview-disabled object-fit="cover"
-                        :src="project.coverPicture || '/static/images/carousel/Astral3DEditor.png'"
+                        :src="getServiceStaticFile(project.coverPicture) || '/static/images/carousel/Astral3DEditor.png'"
                         class="w-full h-220px cursor-pointer hover:transform-scale-140 transition-all-200"
                         @click="editScene(project.id)" />
                 </template>
             </template>
 
             <template #action>
-                <n-skeleton v-if="loadingProjectId === project.id" text :repeat="1" />
-                <CardAction v-show="loadingProjectId !== project.id" :data="project" @refresh="refresh"
+                <n-skeleton v-if="loadingProjectId === Number(project.id)" text :repeat="1" />
+                <CardAction v-show="loadingProjectId !== Number(project.id)" :data="project" @refresh="refresh"
                     @setLoadingProjectId="setLoadingProjectId" />
             </template>
         </n-card>

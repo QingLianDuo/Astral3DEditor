@@ -8,8 +8,9 @@ import {DefaultSceneData, useSceneInfoStore} from "@/store/modules/sceneInfo";
 import CesiumConfig from "@/components/project/CesiumConfig.vue";
 import {fetchAddScene} from "@/http/api/scenes";
 import EsTip from "@/components/es/EsTip.vue";
+import {getServiceStaticFile} from "@/utils/common/file";
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   visible: boolean
 }>(), {
   visible: false
@@ -203,7 +204,7 @@ onMounted(() => {
                 <n-tag type="success" :bordered="false" class="absolute top-10px right-10px z-10">
                   {{ example.sceneType }}
                 </n-tag>
-                <img :src="example.coverPicture || '/static/images/carousel/Astral3DEditor.png'" :alt="example.sceneName"
+                <img :src="getServiceStaticFile(example.coverPicture) || '/static/images/carousel/Astral3DEditor.png'" :alt="example.sceneName"
                      class="h-110px hover:transform-scale-140 transition-all-200">
               </template>
 

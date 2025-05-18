@@ -14,3 +14,7 @@ export const filterSize = (size:number): string | any => {
     return (size / pow1024(4)).toFixed(2) + ' TB'
 }
 
+export const getServiceStaticFile = (url:string):string => {
+    return `/file/static` + (url[0] === '/' ? '' : '/') + url;
+}
+

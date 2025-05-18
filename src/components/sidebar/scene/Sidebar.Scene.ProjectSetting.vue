@@ -4,6 +4,7 @@ import {t} from "@/language";
 import {useSceneInfoStore} from "@/store/modules/sceneInfo";
 import {SCENE_TYPE} from "@/utils/common/constant";
 import {getViewportImage} from "@/utils/common/scenes";
+import {getServiceStaticFile} from "@/utils/common/file";
 
 const sceneInfoStore = useSceneInfoStore();
 const data = computed(() => sceneInfoStore.data);
@@ -53,7 +54,7 @@ function handleScreenshot(){
     <!--  封面图  -->
     <n-form-item :label="t('scene.Cover Picture')">
       <div class="w-full flex flex-col">
-        <n-image :src="sceneInfoStore.screenshot" :alt="t('scene.Screenshot')" />
+        <n-image :src="getServiceStaticFile(sceneInfoStore.screenshot)" :alt="t('scene.Screenshot')" />
         <n-button @click="handleScreenshot">{{ t('scene.Screenshot') }}</n-button>
       </div>
     </n-form-item>

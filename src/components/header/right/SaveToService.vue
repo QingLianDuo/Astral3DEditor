@@ -39,8 +39,8 @@ function save(){
 
       let coverPicture = sceneInfoStore.data.coverPicture;
       // 如果生成了封面，则先上传封面
-      if(sceneInfoStore.screenshot !== DefaultScreenshot && sceneInfoStore.screenshot !== coverPicture){
-        const f = await fetch(sceneInfoStore.screenshot);
+      if(coverPicture && coverPicture !== DefaultScreenshot){
+        const f = await fetch(coverPicture);
         const blob = await f.blob();
         const res = await fetchUpload({
           file: new File([blob],`${sceneInfoStore.data.sceneName}-${Date.now()}.png`, { type: blob.type }),

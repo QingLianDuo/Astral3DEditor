@@ -17,6 +17,8 @@ export const filterSize = (size:number): string | any => {
 export const getServiceStaticFile = (url:string):string => {
     if(!url) return "";
 
+    if(url.startsWith("blob:") || url.startsWith("data:") || url.startsWith("http:") || url.startsWith("https:")) return url;
+
     return `/file/static` + (url[0] === '/' ? '' : '/') + url;
 }
 

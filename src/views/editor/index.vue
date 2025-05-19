@@ -28,10 +28,6 @@ async function init() {
     res.data.cesiumConfig = res.data.cesiumConfig ? JSON.parse(res.data.cesiumConfig as string) : undefined;
     sceneInfoStore.setData(res.data);
 
-    if(res.data.coverPicture){
-      sceneInfoStore.screenshot = res.data.coverPicture;
-    }
-
     initLoading.value = false;
 
     await nextTick();

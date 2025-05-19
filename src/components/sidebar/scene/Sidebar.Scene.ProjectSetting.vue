@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {computed} from "vue";
 import {t} from "@/language";
-import {useSceneInfoStore} from "@/store/modules/sceneInfo";
+import {useSceneInfoStore,DefaultScreenshot} from "@/store/modules/sceneInfo";
 import {SCENE_TYPE} from "@/utils/common/constant";
 import {getViewportImage} from "@/utils/common/scenes";
 import {getServiceStaticFile} from "@/utils/common/file";
@@ -11,7 +11,7 @@ const data = computed(() => sceneInfoStore.data);
 
 function handleScreenshot(){
   getViewportImage(document.querySelector("#viewport canvas:first-child") as HTMLCanvasElement).then(image => {
-    sceneInfoStore.screenshot = image.src;
+    sceneInfoStore.data.coverPicture = image.src;
   })
 }
 </script>
@@ -54,7 +54,7 @@ function handleScreenshot(){
     <!--  封面图  -->
     <n-form-item :label="t('scene.Cover Picture')">
       <div class="w-full flex flex-col">
-        <n-image :src="getServiceStaticFile(sceneInfoStore.screenshot)" :alt="t('scene.Screenshot')" />
+        <n-image :src="getServiceStaticFile(sceneInfoStore.data.coverPicture) || DefaultScreenshot" :alt="t('scene.Screenshot')" />
         <n-button @click="handleScreenshot">{{ t('scene.Screenshot') }}</n-button>
       </div>
     </n-form-item>

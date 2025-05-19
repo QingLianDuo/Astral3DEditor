@@ -4,8 +4,6 @@ import { store } from '@/store';
 interface ISceneInfo {
     // sceneInfo
     data:ISceneFetchData,
-    // 工程（场景截图）Url
-    screenshot:string
 }
 
 export const DefaultSceneData = {
@@ -30,8 +28,7 @@ export const DefaultScreenshot = "/static/images/placeholder/截屏占位图.png
 export const useSceneInfoStore = defineStore({
     id: 'sceneInfo',
     state: () => <ISceneInfo>({
-        data:DefaultSceneData,
-        screenshot:DefaultScreenshot
+        data:DefaultSceneData
     }),
     getters:{
         isCesiumScene:state=> state.data.projectType === 1,

@@ -15,6 +15,8 @@ export const filterSize = (size:number): string | any => {
 }
 
 export const getServiceStaticFile = (url:string):string => {
+    if(!url) return "";
+
     return `/file/static` + (url[0] === '/' ? '' : '/') + url;
 }
 

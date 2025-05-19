@@ -238,7 +238,8 @@ export class Viewport {
             }
             this.modules.controls.enabled = true;
         })
-        this.sceneHelpers.add(transformControls);
+        const gizmo = transformControls.getHelper();
+        this.sceneHelpers.add(gizmo);
 
         return {
             xr: new XR(transformControls),

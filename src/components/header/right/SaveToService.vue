@@ -106,7 +106,10 @@ function save(){
           fetchUpdateScene(sceneInfoStore.data.id,params).then((res: Service.SuccessResult<ISceneFetchData>) => {
             globalConfigStore.loadingText = window.$t("prompt.Saved successfully!");
 
-            sceneInfoStore.setData(res.data);
+            if(res.data){
+              sceneInfoStore.setData(res.data);
+            }
+            
             setTimeout(() => {
               globalConfigStore.loading = false;
             }, 500)

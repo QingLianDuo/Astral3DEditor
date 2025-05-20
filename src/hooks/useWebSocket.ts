@@ -50,7 +50,7 @@ export function connectWebSocket(url) {
                 }
                 pingInterval = setInterval(() => {
                     send(PING);
-                }, 30 * 1000);
+                }, 5 * 1000);
             },
             onClose: () => {
                 console.log('WebSocket 连接关闭');
@@ -68,7 +68,7 @@ export function connectWebSocket(url) {
 }
 
 function onMessage(e: any) {
-    if (e.data === 'ping' || e.data === 'heartbeat' || e.data === 'pong') {
+    if (e.data === 'ping' || e.data === 'heartbeat' || e.data === 'pong' || e.data instanceof Blob) {
         return;
     }
     // console.log('[WebSocket] -----接收消息-------', e.data);
